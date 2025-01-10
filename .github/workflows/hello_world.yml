@@ -2,12 +2,16 @@ name: Hello World
 
 on:
   workflow_dispatch:
+    inputs:
+      databricks_job_name:
+        description: 'Name of the Databricks job'
+        required: true
+        type: string
 
 jobs:
   say-hello:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Print Hello World
-      run: |
-        echo "Hello world"
+    - name: Use job name
+      run: echo "The Databricks job name is ${{ inputs.databricks_job_name }}"
