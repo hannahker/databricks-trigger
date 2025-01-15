@@ -31,8 +31,33 @@ jobs:
     - name: Install as package
       run: pip install -e .
 
-    - name: Run IMERG
+    - name: Display inputs
+      run: echo "Run triggered by ${{ inputs.databricks_job_name }}"
+
+    - name: Trigger IMERG updates
+      if: inputs.databricks_job_name == 'imerg'
       env: 
         GH_PAT: ${{ secrets.GH_PAT }}
       run: |
         python updates/imerg.py
+
+    - name: Trigger SEAS5 updates
+      if: inputs.databricks_job_name == 'seas5'
+      env: 
+        GH_PAT: ${{ secrets.GH_PAT }}
+      run: |
+        python updates/seas5.py
+
+    - name: Trigger Floodscan updates
+      if: inputs.databricks_job_name == 'floodscan'
+      env: 
+        GH_PAT: ${{ secrets.GH_PAT }}
+      run: |
+        python updates/floodscan.py
+
+    - name: Trigger ERA5 updates
+      if: inputs.databricks_job_name == 'era5'
+      env: 
+        GH_PAT: ${{ secrets.GH_PAT }}
+      run: |
+        python updates/era5.py
