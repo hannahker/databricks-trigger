@@ -9,9 +9,12 @@ on:
         type: string
 
 jobs:
-  say-hello:
+  send-update:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Use job name
-      run: echo "${{ inputs.databricks_job_name }} just ran!"
+    - name: Run IMERG
+      env: 
+        GH_PAT: ${{ secrets.GH_PAT }}
+      run: |
+        python updates/update_imerg.py
