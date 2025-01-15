@@ -23,6 +23,9 @@ jobs:
         python-version: '3.11.4'
         cache: 'pip'
 
+    - name: Install as package
+      run: pip install -e .
+
     - name: Run IMERG
       env: 
         GH_PAT: ${{ secrets.GH_PAT }}
