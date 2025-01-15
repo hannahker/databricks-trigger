@@ -1,4 +1,4 @@
-name: Hello World
+name: Databricks Update
 
 on:
   workflow_dispatch:
