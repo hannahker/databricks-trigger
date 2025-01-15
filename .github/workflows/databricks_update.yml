@@ -27,4 +27,4 @@ jobs:
       env: 
         GH_PAT: ${{ secrets.GH_PAT }}
       run: |
-        python updates/update_imerg.py
+        python updates/imerg.py
