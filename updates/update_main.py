@@ -11,5 +11,5 @@ if __name__ == "__main__":
         account_name = "hannahker", 
         repo_name = "databricks-trigger", 
         action_name = "databricks_update.yml", 
-        inputs = {"job_name": args.job_name}
+        action_inputs = {"job_name": args.job_name}
     )
